@@ -1,53 +1,63 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
+///User klasi har bir userni ma'lumotlarini saqlaydi
 class User {
   String number;
-  String parol;
+  String password;
+
   User({
     required this.number,
-    required this.parol,
+    required this.password,
   });
 
-  User copyWith({
-    String? number,
-    String? parol,
-  }) {
-    return User(
-      number: number ?? this.number,
-      parol: parol ?? this.parol,
-    );
-  }
+  // * User o'zida bir nechta kartalarni saqlashi mumkin.
+  // * Masalan sizda ham 2 yoki 3 ta karta bo'lishi mumkin digande
+  // * Shunichun cards digan list ochib olish kerak. Ichida Card lar bo'ladi
 
+  //! bizga copyWith kerakmas chunki userni copy qiladigan narsasi yo'q
+  // User copyWith({
+  //   String? number,
+  //   String? password,
+  // }) {
+  //   return User(
+  //     number: number ?? this.number,
+  //     password: password ?? this.password,
+  //   );
+  // }
+
+  ///User obyektini Mapga o'girishimiz kerak bo'ladi shuning uchun toMap kerak
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'number': number,
-      'parol': parol,
+      'password': password,
     };
   }
 
+  ///Mapdan User ma'lumotlarini olishimiz kerak chunki database map formatda
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       number: map['number'] as String,
-      parol: map['parol'] as String,
+      password: map['password'] as String,
     );
   }
 
-  String toJson() => json.encode(toMap());
+  //! Bizga hozir toJson va fromJson kerakmas
+  // String toJson() => json.encode(toMap());
 
-  factory User.fromJson(String source) =>
-      User.fromMap(json.decode(source) as Map<String, dynamic>);
+  // factory User.fromJson(String source) =>
+  //     User.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  @override
-  String toString() => 'User(number: $number, parol: $parol)';
+  //! toString ham kerakmas chunki biz userni paroli bilan birga hich qachon chiqarmaymmiz
+  // @override
+  // String toString() => 'User(number: $number, password: $password)';
 
-  @override
-  bool operator ==(covariant User other) {
-    if (identical(this, other)) return true;
+  //! Ikkita userni solishtirish ham kerak bo'lmaydi
+  // @override
+  // bool operator ==(covariant User other) {
+  //   if (identical(this, other)) return true;
 
-    return other.number == number && other.parol == parol;
-  }
+  //   return other.number == number && other.password == password;
+  // }
 
-  @override
-  int get hashCode => number.hashCode ^ parol.hashCode;
+  //! Bu ham
+  // @override
+  // int get hashCode => number.hashCode ^ password.hashCode;
 }
