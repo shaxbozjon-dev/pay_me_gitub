@@ -3,11 +3,13 @@
 class User {
   String number;
   String password;
+  int id;
   List? cards;
 
   User({
     required this.number,
     required this.password,
+    required this.id,
     this.cards,
   });
 //^Gitgub da ishlash zur ekanku😎😎✅
@@ -30,6 +32,7 @@ class User {
       number: map['number'] as String,
       password: map['password'] as String,
       cards: map['List'] as List,
+      id: map['id'] as int,
     );
   }
 }

@@ -7,6 +7,7 @@ import '../pages/builder.dart';
 
 class Menu {
   void menu2() {
+    print("Hush kelibsiz ");
     String number = io.inpudText("number kiriting: ");
 
     for (var e in data.dataBase.entries) {
@@ -14,6 +15,7 @@ class Menu {
         String parol = io.inpudText("parol kiriting: ");
         if (e.value == parol) {
           print("Menu");
+          print(e);
           //Menu
         }
         break;
