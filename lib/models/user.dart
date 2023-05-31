@@ -7,7 +7,7 @@ class User {
     required this.number,
     required this.password,
   });
-
+//^Gitgub da ishlash zur ekanku😎😎✅
   // * User o'zida bir nechta kartalarni saqlashi mumkin.
   // * Masalan sizda ham 2 yoki 3 ta karta bo'lishi mumkin digande
   // * Shunichun cards digan list ochib olish kerak. Ichida Card lar bo'ladi
