@@ -29,6 +29,9 @@ class Menu {
             String password = io.inpudText("pasword kiriting: ");
             int id = Random().nextInt(100);
             User newuser = User(number: number, password: password, id: id);
+            Map ne = {
+              newuser.number: newuser.password,
+            };
 
             //!shu yerni qilolmadim ,new user obyektni data basega qushish kerak
             break;

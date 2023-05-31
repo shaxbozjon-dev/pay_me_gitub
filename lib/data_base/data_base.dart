@@ -1,7 +1,7 @@
 DataBase data = DataBase();
 
 class DataBase {
-  Map<String, Object?> dataBase = {
-    "1": 1,
+  Map<String, String?> dataBase = {
+    "1": "1",
   };
 }

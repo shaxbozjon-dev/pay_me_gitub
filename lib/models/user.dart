@@ -29,10 +29,9 @@ class User {
   ///Mapdan User ma'lumotlarini olishimiz kerak chunki database map formatda
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      number: map['number'] as String,
-      password: map['password'] as String,
-      cards: map['List'] as List,
-      id: map['id'] as int,
-    );
+        number: map['number'] as String,
+        password: map['password'] as String,
+        cards: map['List'] as List,
+        id: map['id'] as int);
   }
 }
