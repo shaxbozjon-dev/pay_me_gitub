@@ -1,5 +1,7 @@
 import 'dart:io';
+
 //IO service yozin yoki eskisini copy qilin
+IoServise io = IoServise();
 
 class IoServise {
   void inputText(String str) {
