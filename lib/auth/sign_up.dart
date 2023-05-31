@@ -13,7 +13,7 @@ class SignUp {
       if (e.key == number) {
         String parol = io.inpudText("number kiriting: ");
       } else {
-        print(" utasizimi");
+        print("ruyhatdan utasizimi");
       }
     }
 
