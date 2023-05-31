@@ -1,16 +1,9 @@
-import 'dart:js_util';
+import 'dart:math';
 
 import '../services/io_servise.dart';
 import '../models/user.dart';
 import '../data_base/data_base.dart';
 import '../pages/builder.dart';
-import '../auth/sign_in.dart';
-import '../auth/sign_up.dart';
-
-Menu menu1 = Menu();
-void main(List<String> args) {
-  menu1.menu2();
-}
 
 class Menu {
   void menu2() {
@@ -20,8 +13,10 @@ class Menu {
       if (e.key == number) {
         String parol = io.inpudText("parol kiriting: ");
         if (e.value == parol) {
-          print(e);
+          print("Menu");
+          //Menu
         }
+        break;
       } else {
         print("Ruyhatdan utasizimi😎\n1.ha\n2.yuq");
 
@@ -30,13 +25,14 @@ class Menu {
           case "1":
             String number = io.inpudText("number kiriting: ");
             String password = io.inpudText("pasword kiriting: ");
-
-            User newuser = User(number: number, password: password);
-
+            int id = Random().nextInt(100);
+            User newuser = User(number: number, password: password, id: id);
+            //!shu yerni qilolmadim ,new user obyektni data basega qushish kerak
             break;
           case "2":
             print("ortga qaytdik");
           default:
+            return;
         }
       }
     }
