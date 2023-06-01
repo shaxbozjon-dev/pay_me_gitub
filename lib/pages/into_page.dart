@@ -4,7 +4,7 @@ import '../menu/menu_1.dart';
 import 'dart:io';
 
 IntroPage intro = IntroPage();
-Menu menu1 = Menu();
+
 Taymer ty = Taymer();
 
 class IntroPage extends Builder {
@@ -21,7 +21,7 @@ class IntroPage extends Builder {
       ty.taymer("Typing is", 1);
       switch (command) {
         case "1":
-          menu1.menu2();
+          menu2();
           break;
         case "0":
           return;

@@ -3,19 +3,14 @@
 class User {
   String number;
   String password;
-  int id;
+
   List? cards;
 
   User({
     required this.number,
     required this.password,
-    required this.id,
     this.cards,
   });
-//^Gitgub da ishlash zur ekanku😎😎✅
-  // * User o'zida bir nechta kartalarni saqlashi mumkin.
-  // * Masalan sizda ham 2 yoki 3 ta karta bo'lishi mumkin digande
-  // * Shunichun cards digan list ochib olish kerak. Ichida Card lar bo'ladi
 
   ///User obyektini Mapga o'girishimiz kerak bo'ladi shuning uchun toMap kerak
   Map<String, dynamic> toMap() {
@@ -29,9 +24,9 @@ class User {
   ///Mapdan User ma'lumotlarini olishimiz kerak chunki database map formatda
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-        number: map['number'] as String,
-        password: map['password'] as String,
-        cards: map['List'] as List,
-        id: map['id'] as int);
+      number: map['number'] as String,
+      password: map['password'] as String,
+      cards: map['List'] as List,
+    );
   }
 }
