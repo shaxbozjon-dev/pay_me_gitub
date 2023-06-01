@@ -12,6 +12,7 @@ void menu2() {
   for (var e in dataBase.entries) {
     print(dataBase.entries);
     if (e.key == number) {
+      print("ruyhada bor ekansiz😎");
       String parol = io.inpudText("parol kiriting: ");
       if (e.value == parol) {
         print("Menu✔✅💹");
@@ -19,6 +20,10 @@ void menu2() {
         print(e);
         break;
         //Menu
+      } else {
+        print("number yoki parol xato");
+        break;
+        
       }
       break;
     } else {
