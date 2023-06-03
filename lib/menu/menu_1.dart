@@ -27,7 +27,7 @@ void menu2() {
           String number = io.inpudText("number kiriting:");
           String balance = io.inpudText("balance kiriting: ");
           String password = io.inpudText("password kiriting: ");
-          int id = newuser.id;
+        
           Card newcard = Card(
               name: name, number: number, balance: balance, password: password);
           for (User e in bazacards) {
