@@ -1,22 +1,16 @@
+import '../menu/menu_1.dart';
 import '../pages/builder.dart';
 import '../services/io_servise.dart';
-import '../menu/menu_1.dart';
-import 'dart:io';
-
-IntroPage intro = IntroPage();
-
-Taymer ty = Taymer();
 
 class IntroPage extends Builder {
   @override
-  void builder1() {
-    // ! bu joyda override qilingan divossiz lekin builderni nomini builder1 qilib o'zgartiribsiz!? nimaga?
+  void builder() {
     super.builder();
 
     while (true) {
       print(
           "\t\t*****************Payme_dasturiga_xush_kelibsiz!************************\n");
-      String command = io.inpudText("1. Boshlash\n"
+      String command = io.inputText("1. Boshlash\n"
           "0. Exit\n"
           "Command: ");
       ty.taymer("Typing is", 1);
@@ -28,18 +22,8 @@ class IntroPage extends Builder {
           return;
         default:
           print("Command not found!");
-          builder1();
+          builder();
       }
-    }
-  }
-}
-
-class Taymer {
-  void taymer(String text, int second) {
-    for (int i = second; i >= 0; i--) {
-      print("\x1B[2J\x1B[0;0H");
-      print(" $text $i...");
-      sleep(Duration(seconds: 1));
     }
   }
 }
