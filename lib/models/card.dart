@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 class Card {
@@ -16,7 +15,7 @@ class Card {
     required String number,
     required String balance,
     required String password,
-  });
+  }) : _number = number,_balance=balance,_password=number;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
