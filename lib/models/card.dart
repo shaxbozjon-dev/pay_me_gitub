@@ -1,48 +1,45 @@
-// // ignore_for_file: public_member_api_docs, sort_constructors_first
-// import 'dart:convert';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 
-// class Card {
-//   String name;
-//   String number;
-//   String balance;
-//   String _password;
-//   String get password=>_password;
+class Card {
+  late String name;
+  late String _number;
+  late String _balance;
+  late String _password;
 
-//   Card({
-//     required this.name,
-//     required this.number,
-//     required this.balance,
-//     required this.p,
-//   });
-  
+  String get password => _password;
+  String get balance => _balance;
+  String get number => _number;
 
+  Card({
+    required String name,
+    required String number,
+    required String balance,
+    required String password,
+  });
 
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'name': name,
+      'number': number,
+      'balance': balance,
+      'password': password,
+    };
+  }
 
-//   Map<String, dynamic> toMap() {
-//     return <String, dynamic>{
-//       'name': name,
-//       'number': number,
-//       'balance': balance,
-//       'password': password,
-//     };
-//   }
+  factory Card.fromMap(Map<String, dynamic> map) {
+    return Card(
+      name: map['name'] as String,
+      number: map['number'] as String,
+      balance: map['balance'] as String,
+      password: map['password'] as String,
+    );
+  }
 
-//   factory Card.fromMap(Map<String, dynamic> map) {
-//     return Card(
-//       name: map['name'] as String,
-//       number: map['number'] as String,
-//       balance: map['balance'] as String,
-//       password: map['password'] as String,
-//     );
-//   }
+  String toJson() => json.encode(toMap());
 
-//   String toJson() => json.encode(toMap());
-
- 
-//   @override
-//   String toString() {
-//     return 'Card(name: $name, number: $number, balance: $balance)';
-//   }
-
-
-// }
+  @override
+  String toString() {
+    return 'Card(name: $name, number: $number, balance: $balance)';
+  }
+}

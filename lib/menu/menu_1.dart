@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:pay_me_gitub/models/card.dart';
+
 import '../services/io_servise.dart';
 import '../models/user.dart';
 import '../data_base/data_base.dart';
@@ -17,10 +19,26 @@ void menu2() {
     print("ruyhada bor ekansiz😎");
     String parol = io.inpudText("parol kiriting: ");
     if (data == parol) {
-      print(data);
-      print("Menu✔✅💹");
-      print("Menular 1.pul junatmoqchimisiz ");
-      print("1.Add card\n2.My cards3.\nTransfers on cards\n4");
+      String commmon = io.inpudText(
+          "1.Add card\n2.My cards3.\nBalance\n4.Utkazmalar\n5.settings\n0.ortga");
+      switch (commmon) {
+        case "1":
+          String name = io.inpudText("name kiriting: ");
+          String number = io.inpudText("number kiriting:");
+          String balance = io.inpudText("balance kiriting: ");
+          String password = io.inpudText("password kiriting: ");
+          int id = newuser.id;
+          Card newcard = Card(
+              name: name, number: number, balance: balance, password: password);
+          for (User e in bazacards) {
+            if (e.id == newcard) {}
+          }
+          break;
+        case "2":
+          //MyCards
+          break;
+        default:
+      }
 
       //Menu
     } else {
@@ -34,8 +52,8 @@ void menu2() {
       case "1":
         String number = io.inpudText("number kiriting: ");
         String password = io.inpudText("pasword kiriting: ");
-
-        User newuser = User(number: number, password: password);
+        int id = Random().nextInt(10000);
+        User newuser = User(number: number, password: password, id: id);
         dataBase.addEntries([MapEntry(newuser.number, newuser.password)]);
         print(dataBase);
 
@@ -48,3 +66,5 @@ void menu2() {
     }
   }
 }
+
+void ADDcards() {}
