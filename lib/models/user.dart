@@ -8,8 +8,8 @@ class User {
 
 
   User({
-    required String number,
-    required String password,
+    required this.number,
+    required this.password,
  
   });
 

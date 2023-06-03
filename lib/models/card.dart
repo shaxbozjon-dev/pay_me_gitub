@@ -11,7 +11,7 @@ class Card {
   String get number => _number;
 
   Card({
-    required String name,
+    required this.name,
     required String number,
     required String balance,
     required String password,
