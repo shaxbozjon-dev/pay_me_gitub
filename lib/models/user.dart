@@ -1,16 +1,19 @@
 import 'dart:convert';
 
+import 'card.dart';
 
 ///User klasi har bir userni ma'lumotlarini saqlaydi
 class User {
-  late String number;
-  late String password;
-
+   String? number;
+   String password;
+   List<Card>? cards;
 
   User({
-    required this.number,
-    required this.password,
- 
+  String number="",
+    String password="",
+   [  List cards],
+
+    
   });
 
   ///User obyektini Mapga o'girishimiz kerak bo'ladi shuning uchun toMap kerak
@@ -18,7 +21,6 @@ class User {
     return <String, dynamic>{
       'number': number,
       'password': password,
-
     };
   }
 
@@ -27,7 +29,6 @@ class User {
     return User(
       number: map['number'] as String,
       password: map['password'] as String,
-
     );
   }
 
