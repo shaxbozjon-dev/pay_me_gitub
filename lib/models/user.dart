@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 ///User klasi har bir userni ma'lumotlarini saqlaydi
 class User {
@@ -17,7 +19,7 @@ class User {
     return <String, dynamic>{
       'number': number,
       'password': password,
-      'List': cards,
+    
     };
   }
 
@@ -26,7 +28,11 @@ class User {
     return User(
       number: map['number'] as String,
       password: map['password'] as String,
-      cards: map['List'] as List,
+    
     );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
 }
