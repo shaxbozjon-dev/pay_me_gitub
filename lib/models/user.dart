@@ -5,12 +5,12 @@ import 'dart:convert';
 class User {
   late String number;
   late String password;
-  late int id;
+
 
   User({
     required String number,
     required String password,
-    required int id,
+ 
   });
 
   ///User obyektini Mapga o'girishimiz kerak bo'ladi shuning uchun toMap kerak
@@ -18,7 +18,7 @@ class User {
     return <String, dynamic>{
       'number': number,
       'password': password,
-      'id':id,
+
     };
   }
 
@@ -27,7 +27,7 @@ class User {
     return User(
       number: map['number'] as String,
       password: map['password'] as String,
-      id: map['id'] as int,
+
     );
   }
 

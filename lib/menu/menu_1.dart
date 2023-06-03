@@ -30,10 +30,7 @@ void menu2() {
         
           Card newcard = Card(
               name: name, number: number, balance: balance, password: password);
-          for (User e in bazacards) {
-            if (e.id == newcard) {}
-          }
-          break;
+      
         case "2":
           //MyCards
           break;
@@ -52,8 +49,8 @@ void menu2() {
       case "1":
         String number = io.inpudText("number kiriting: ");
         String password = io.inpudText("pasword kiriting: ");
-        int id = Random().nextInt(10000);
-        User newuser = User(number: number, password: password, id: id);
+
+        User newuser = User(number: number, password: password);
         dataBase.addEntries([MapEntry(newuser.number, newuser.password)]);
         print(dataBase);
 
