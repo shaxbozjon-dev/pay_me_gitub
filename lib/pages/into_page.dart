@@ -10,6 +10,7 @@ Taymer ty = Taymer();
 class IntroPage extends Builder {
   @override
   void builder1() {
+    // ! bu joyda override qilingan divossiz lekin builderni nomini builder1 qilib o'zgartiribsiz!? nimaga?
     super.builder();
 
     while (true) {
