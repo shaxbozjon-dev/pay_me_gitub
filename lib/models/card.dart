@@ -5,6 +5,7 @@ class Card {
   late String _number;
   late String _balance;
   late String _password;
+  
 
   String get password => _password;
   String get balance => _balance;

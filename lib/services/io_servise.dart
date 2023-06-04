@@ -11,32 +11,34 @@ IoServise io = IoServise();
 /// nimadir foydalanuvchidan so'ravotti dib o'yliydi
 
 class IoServise {
-  void inputText(String str) {
-    //Nomini o'zgartirin
+  void _console(String str) {//?textni shaklida olib beradi
     stdout.write(str);
   }
 
-  void inputTextPas(String str) {
-    //Buniyam. Masalan: outputLineText(), lineOutput()
-    stdout.writeln(str);
-  }
+
 
   String inpudText(String str) {
     // buniyam
-    inputText(str);
-    return stdin.readLineSync()!;
+    _console(str);//?text olib beryabdi 
+    return stdin.readLineSync()??"";//tekst va str kitishni suraydi
   }
 
-  String inpudTextPas(String str) {
-    //buniyam
-    inputTextPas(str);
-    return stdin.readLineSync()!;
-  }
 
-  int inpudNumber(String a) {
+
+  int inpudNumber(String str) {
     //input bo'lishi kerak
-    inputText(a);
-    return int.parse(
-        stdin.readLineSync()!); // agar foydalanuvchi satr kiritsa portliydiku
+    _console(str);
+    return int.tryParse(stdin.readLineSync() ?? "")?? -1; // agar foydalanuvchi satr kiritsa portliydiku
+  }
+
+
+}
+class Taymer {
+  void taymer(String text, int second) {
+    for (int i = second; i >= 0; i--) {
+      print("\x1B[2J\x1B[0;0H");
+      print(" $text $i...");
+      sleep(Duration(seconds: 1));
+    }
   }
 }

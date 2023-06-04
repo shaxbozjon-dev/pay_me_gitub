@@ -1,11 +1,9 @@
-import 'dart:math';
 
 import 'package:pay_me_gitub/models/card.dart';
 
-import '../services/io_servise.dart';
-import '../models/user.dart';
 import '../data_base/data_base.dart';
-import '../pages/builder.dart';
+import '../models/user.dart';
+import '../services/io_servise.dart';
 
 void menu2() {
   print("Hush kelibsiz ");
@@ -15,22 +13,16 @@ void menu2() {
 
   if (dataBase.containsKey(number.trim())) {
     var data = dataBase[number];
-    print(data);
+  
     print("ruyhada bor ekansiz😎");
     String parol = io.inpudText("parol kiriting: ");
     if (data == parol) {
+      
       String commmon = io.inpudText(
           "1.Add card\n2.My cards3.\nBalance\n4.Utkazmalar\n5.settings\n0.ortga");
       switch (commmon) {
         case "1":
-          String name = io.inpudText("name kiriting: ");
-          String number = io.inpudText("number kiriting:");
-          String balance = io.inpudText("balance kiriting: ");
-          String password = io.inpudText("password kiriting: ");
-        
-          Card newcard = Card(
-              name: name, number: number, balance: balance, password: password);
-      
+          addcards();
         case "2":
           //MyCards
           break;
@@ -44,13 +36,13 @@ void menu2() {
   } else {
     print("Ruyhatdan utasizimi😎");
 
-    String str = io.inpudTextPas("1.ha\n2.yuq");
+    String str = io.inpudText("1.ha\n2.yuq\n--> ");
     switch (str) {
       case "1":
         String number = io.inpudText("number kiriting: ");
         String password = io.inpudText("pasword kiriting: ");
 
-        User newuser = User(number: number, password: password);
+        User newuser = User(number: number, password: password, cards: []);
         dataBase.addEntries([MapEntry(newuser.number, newuser.password)]);
         print(dataBase);
 

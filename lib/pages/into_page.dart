@@ -1,7 +1,8 @@
+import 'dart:io';
+
+import '../menu/menu_1.dart';
 import '../pages/builder.dart';
 import '../services/io_servise.dart';
-import '../menu/menu_1.dart';
-import 'dart:io';
 
 IntroPage intro = IntroPage();
 
@@ -9,9 +10,9 @@ Taymer ty = Taymer();
 
 class IntroPage extends Builder {
   @override
-  void builder1() {
+  void builder() {
     // ! bu joyda override qilingan divossiz lekin builderni nomini builder1 qilib o'zgartiribsiz!? nimaga?
-    super.builder();
+    super.builder();// builser chaqirsak joy tashab beradi
 
     while (true) {
       print(
@@ -28,18 +29,8 @@ class IntroPage extends Builder {
           return;
         default:
           print("Command not found!");
-          builder1();
+          builder();
       }
-    }
-  }
-}
-
-class Taymer {
-  void taymer(String text, int second) {
-    for (int i = second; i >= 0; i--) {
-      print("\x1B[2J\x1B[0;0H");
-      print(" $text $i...");
-      sleep(Duration(seconds: 1));
     }
   }
 }
