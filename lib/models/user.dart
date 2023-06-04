@@ -37,6 +37,3 @@ String number;
 
   String toJson() => json.encode(toMap());
 }
-addcards(){
-  
-}

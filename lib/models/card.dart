@@ -3,20 +3,26 @@ import 'dart:convert';
 class Card {
   late String name;
   late String _number;
-  late String _balance;
+  late int  _balance;
   late String _password;
-  
+  late String _id;
 
   String get password => _password;
-  String get balance => _balance;
+  int get balance => _balance;
   String get number => _number;
+  String get id => _id;
+  
 
   Card({
     required this.name,
     required String number,
-    required String balance,
+    required int balance,
     required String password,
-  }) :_number=number,_balance=balance,_password=password;
+    required String id,
+  })  : _number = number,
+        _balance = balance,
+        _id = id,
+        _password = password;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -24,14 +30,16 @@ class Card {
       'number': number,
       'balance': balance,
       'password': password,
+      'id': id,
     };
   }
 
   factory Card.fromMap(Map<String, dynamic> map) {
     return Card(
       name: map['name'] as String,
+      id: map['id'] as String,
       number: map['number'] as String,
-      balance: map['balance'] as String,
+      balance: map['balance'] as int,
       password: map['password'] as String,
     );
   }
