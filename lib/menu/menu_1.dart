@@ -18,7 +18,7 @@ void menu2() {
     print("ruyhada bor ekansiz😎");
     String parol = io.inpudText("parol kiriting: ");
     if (data == parol) {
-      while (true) {
+    
         String commmon = io.inpudText(
             "1.Add card\n2.My cards\n3.Balance\n4.Utkazmalar\n5.settings\n10.ortga\n10.chiqish"); //menu
 
@@ -74,7 +74,7 @@ void menu2() {
           default:
         }
       }
-    } else {
+     else {
       print("number yoki parol xato");
     }
   } else {
