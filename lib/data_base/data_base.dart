@@ -10,7 +10,7 @@ bool createData({required User user}) {
   if (dataBase.containsKey(user.number)) {
     return false;
   } else {
-    dataBase[user.number] = user.toMap();
+    dataBase[user.number] = user.toJson();
     return true;
   }
 }
