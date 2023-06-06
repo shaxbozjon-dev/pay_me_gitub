@@ -7,6 +7,7 @@ import '../services/io_servise.dart';
 void menu2() {
   //?kodlarim juda sodda va hunuk bub qoldi   murakkabroq qilmoqchidim ,umuman chiqorolmadim,
   //~hozi userga id berib     alohida list ochib cartalarni Idsi bilan userni idisi tenglashtirdim
+
   print("Hush kelibsiz ");
   String number = io.inpudText("number kiriting: ");
 
@@ -18,9 +19,9 @@ void menu2() {
     print("ruyhada bor ekansiz😎");
     String parol = io.inpudText("parol kiriting: ");
     if (data == parol) {
-    
+      while (true) {
         String commmon = io.inpudText(
-            "1.Add card\n2.My cards\n3.Balance\n4.Utkazmalar\n5.settings\n10.ortga\n10.chiqish"); //menu
+            "1.Add card\n2.My cards\n3.Balance\n4.Utkazmalar\n5.settings\n0.ortga\n100.chiqish\n"); //menu
 
         switch (commmon) {
           case "1":
@@ -40,42 +41,69 @@ void menu2() {
             break;
           case "2":
             int j = 0;
+
             for (Card e in bazacards) {
               //cartalarni aylanib user Idsi bilan bir hil buganlarni chiqoryabman
               if (e.id == parol) {
                 j++;
-                print("""$j:
-                        
-                        ||                           
-                        || cards name:${e.name}      
-                        ||
-                        ||
-                        || cards number:${e.number}                              
-                        ||                           
-                        ||caeds balance:${e.balance} 
-                        ||**********************************
+                print("""$j
+           ||                           
+           || cards name:${e.name}         
+           ||                             
+           ||
+           || cards number:${e.number}                              
+           ||                           
+           ||caeds balance:${e.balance} 
+           ||**********************************
                         """);
               }
             }
-
+            break;
           case "3":
+            String viewcard =
+                io.inpudText("qaysi kartani balanceni kurmoqchisiz? ");
             int balanse = 0; //bu yerda balanse
             for (Card e in bazacards) {
-              if (e.id == parol) {}
-              balanse += e.balance;
+              if (e.id == parol) {
+                if (e.number == viewcard) {
+                  balanse = e.balance;
+                }
+              }
             }
             print("Sizning balansingiz ${balanse} so'm");
             break;
-         
+          case "4":
+            String namecard =
+                io.inpudText("qaysi kartangizdan junatmoqchisiz  ");
 
-          case "0":
+            String kartanumber = io.inpudText(
+                "kimga junatmoqchi bulgan odamni karta raqamini kiriting ");
+            int pul = io.inpudNumber("nechpul junatmoqchisiz ");
+
+            for (Card e in bazacards) {
+              if (e.number == namecard) {
+                if (e.balance > pul) {
+                  e.balance -= pul;
+                }
+
+                break;
+              }
+            }
+            for (Card e in bazacards) {
+              if (e.number == kartanumber) {
+                e.balance += pul;
+                break;
+              }
+            }
+
             break;
 
-          default:
+          case "0":
+            print("ortga🔻");
+            menu2();
+            return;
         }
       }
-     else {
-      print("number yoki parol xato");
     }
   } else {
     print("Ruyhatdan utasizimi😎");
@@ -83,13 +111,27 @@ void menu2() {
     String str = io.inpudText("1.ha\n2.yuq\n--> ");
     switch (str) {
       case "1":
-        String number = io.inpudText("number kiriting: ");
-        String password = io.inpudText("pasword kiriting: ");
-
-        User newuser = User(number: number, password: password, cards: []);
-        dataBase.addEntries([MapEntry(newuser.number, newuser.password)]);
-        print(dataBase);
-
+        String number = "";
+        String password = "";
+        bool j = false;
+        while (j != true) {
+          if (number.isEmpty) {
+            number = io.inpudText("number kiriting: ");
+            j = false;
+          }
+          if (password.isEmpty) {
+            password = io.inpudText("pasword kiriting: ");
+            j = false;
+          }
+          if (number.isNotEmpty && password.isNotEmpty) {
+            j = true;
+            print("kontaktga qushildi ✅");
+            User newuser = User(number: number, password: password, cards: []);
+            dataBase.addEntries([MapEntry(newuser.number, newuser.password)]);
+            print(dataBase);
+            return;
+          }
+        }
         break;
       case "2":
         print("ortga qaytdik");

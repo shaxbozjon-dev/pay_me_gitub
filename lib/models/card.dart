@@ -3,15 +3,18 @@ import 'dart:convert';
 class Card {
   late String name;
   late String _number;
-  late int  _balance;
+  late int _balance;
   late String _password;
   late String _id;
 
   String get password => _password;
   int get balance => _balance;
+  set balance(int b) {
+    _balance = b;
+  }
+
   String get number => _number;
   String get id => _id;
-  
 
   Card({
     required this.name,
