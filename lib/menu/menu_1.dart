@@ -25,10 +25,23 @@ void menu2() {
 
         switch (commmon) {
           case "1":
-            String name = io.inpudText("name card: ");
-            String number = io.inpudText("number card: ");
-            int balance = io.inpudNumber("balance card: ");
-            String password = io.inpudText("password card: ");
+        
+          
+             
+               String   name = io.inpudText("name card: ");
+            
+                String  number = io.inpudText("number card: ");
+            
+
+             
+                int balance = io.inpudNumber("balance card: ");
+           
+             
+               String  password = io.inpudText("password card: ");
+           
+               
+             
+            
             String id = parol;
             Card card = Card(
                 name: name,
@@ -36,8 +49,12 @@ void menu2() {
                 balance: balance,
                 password: password,
                 id: id);
+        
+                bazacards.add(card);
+                print("karta qushildi 🟩");
+            
+            
 
-            bazacards.add(card);
             break;
           case "2":
             int j = 0;
@@ -135,8 +152,9 @@ void menu2() {
         break;
       case "2":
         print("ortga qaytdik");
-        break;
+        return;
       default:
+        print("bunday buyruq mavjud emas ");
         return;
     }
   }
