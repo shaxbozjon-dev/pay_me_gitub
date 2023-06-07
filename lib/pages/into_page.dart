@@ -1,29 +1,26 @@
-import '../menu/menu_1.dart';
 import '../pages/builder.dart';
 import '../services/io_servise.dart';
 
 class IntroPage extends Builder {
+  String errorMessage = "";
   @override
   void builder() {
     super.builder();
+    Center(message: "Payme dasturiga xush kelibsiz!");
 
-    while (true) {
-      print(
-          "\t\t*****************Payme_dasturiga_xush_kelibsiz!************************\n");
-      String command = io.inputText("1. Boshlash\n"
-          "0. Exit\n"
-          "Command: ");
-      ty.taymer("Typing is", 1);
-      switch (command) {
-        case "1":
-          menu2();
-          break;
-        case "0":
-          return;
-        default:
-          print("Command not found!");
-          builder();
-      }
+    String command = io.inputText("1. Boshlash\n"
+        "0. Chiqish(default)\n"
+        "$errorMessage\n"
+        ">>> ");
+    switch (command) {
+      case "1":
+        //TODO: Menu();
+        break;
+      case "0" || "":
+        return;
+      default:
+        errorMessage = "Noto'g'ri buyruq kiritildi...";
+        builder();
     }
   }
 }

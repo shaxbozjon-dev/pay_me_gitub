@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Card {
   late String name;
   late String _number;
@@ -15,7 +13,9 @@ class Card {
     required String number,
     required String balance,
     required String password,
-  }) :_number=number,_balance=balance,_password=password;
+  })  : _number = number,
+        _balance = balance,
+        _password = password;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -34,8 +34,6 @@ class Card {
       password: map['password'] as String,
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   @override
   String toString() {
