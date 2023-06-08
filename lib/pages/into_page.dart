@@ -1,5 +1,6 @@
 import '../pages/builder.dart';
 import '../services/io_servise.dart';
+import 'menu_page.dart';
 
 class IntroPage extends Builder {
   String errorMessage = "";
@@ -14,7 +15,7 @@ class IntroPage extends Builder {
         ">>> ");
     switch (command) {
       case "1":
-        //TODO: Menu();
+        Menu();
         break;
       case "0" || "":
         return;

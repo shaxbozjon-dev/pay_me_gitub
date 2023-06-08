@@ -24,6 +24,8 @@ class IoServise {
     do {
       isNotCorrect = false;
       password = inputText(text);
+      io.clr();
+      if (password == "0") return "0";
       if (password.length < 8) {
         print("Parol kamida 8 ta belgidan iborat bo'lishi kerak.");
         isNotCorrect = true;

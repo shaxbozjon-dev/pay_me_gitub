@@ -1,4 +1,6 @@
+import '../database/database.dart';
 import '../services/io_servise.dart';
+import 'auth/sign_up_page.dart';
 import 'builder.dart';
 
 class Menu extends Builder {
@@ -17,6 +19,12 @@ class Menu extends Builder {
       return;
     } else if (number == 0) {
       return;
+    }
+
+    if (db.isInDataBase(number: number)) {
+      // TODO: SignIn();
+    } else {
+      SignUp(number: number);
     }
   }
 }
