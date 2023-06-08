@@ -17,8 +17,8 @@ class Card {
         _balance = balance,
         _password = password;
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+  Map<String, Object> toMap() {
+    return <String, Object>{
       'name': name,
       'number': number,
       'balance': balance,
@@ -26,7 +26,7 @@ class Card {
     };
   }
 
-  factory Card.fromMap(Map<String, dynamic> map) {
+  factory Card.fromMap(Map<String, Object> map) {
     return Card(
       name: map['name'] as String,
       number: map['number'] as String,

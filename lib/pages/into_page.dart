@@ -9,9 +9,9 @@ class IntroPage extends Builder {
     super.builder();
     Center(message: "Payme dasturiga xush kelibsiz!");
 
-    String command = io.inputText("1. Boshlash\n"
-        "0. Chiqish(default)\n"
-        "$errorMessage\n"
+    String command = io.inputText("1. Boshlash \n"
+        "0. Chiqish(default) \n"
+        "$errorMessage \n"
         ">>> ");
     switch (command) {
       case "1":

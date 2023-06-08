@@ -15,7 +15,13 @@ class Database {
     }
   }
 
+  /// Bazada borligini takshiradi
   bool isInDataBase({required int number}) {
     return dataBase.containsKey(number);
+  }
+
+  /// Bazadan raqam bo'yicha o'qib olish
+  User readData(int number) {
+    return User.fromMap(dataBase[number]!);
   }
 }

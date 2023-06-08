@@ -2,6 +2,7 @@ import '../../database/database.dart';
 import '../../models/user_model.dart';
 import '../../services/io_servise.dart';
 import '../into_page.dart';
+import 'sign_in_page.dart';
 
 class SignUp {
   final int number;
@@ -24,9 +25,10 @@ class SignUp {
           "0. Chiqish(default)\n"
           "$errorMessage\n"
           ">>> ");
+      io.clr();
       switch (command) {
         case "1":
-          // TODO: SignIn();
+          SignIn(number: number);
           break;
         case "0":
           return;
