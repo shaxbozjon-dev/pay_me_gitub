@@ -1,3 +1,5 @@
+import 'package:pay_me_gitub/pages/main/main_page.dart';
+
 import '../../database/database.dart';
 import '../../models/user_model.dart';
 import '../../services/io_servise.dart';
@@ -19,7 +21,7 @@ class SignIn {
     User user = db.readData(number);
     if (user.password == password) {
       ty.taymer("Biroz kuting.", 3);
-      //TODO: Main();
+      MainPage();
     } else {
       print("Parol xato!");
       String command = io.inputText("1. Qayta urinish \n"

@@ -1,5 +1,6 @@
 import '../database/database.dart';
 import '../services/io_servise.dart';
+import 'auth/sign_in_page.dart';
 import 'auth/sign_up_page.dart';
 import 'builder.dart';
 
@@ -10,7 +11,7 @@ class Menu extends Builder {
     super.builder();
     Center(message: "Menu");
 
-    int number = io.inputNumber("$errorMessage"
+    int number = io.inputNumber("$errorMessage \n"
         "Raqamingizni kiriting(0 => chiqish): ");
 
     if (number < 0) {
@@ -22,7 +23,7 @@ class Menu extends Builder {
     }
 
     if (db.isInDataBase(number: number)) {
-      // TODO: SignIn();
+      SignIn(number: number);
     } else {
       SignUp(number: number);
     }
